@@ -31,7 +31,6 @@ def send_welcome(message):
     markup.add("💤 Спящий режим")
     markup.add("📩 Отправить сообщение")
     markup.add("🎤 Записать 15 с записи микрофона")
-    markup.add("Выключить звук")
     bot.send_message(message.chat.id, f" Привет хозяин \nСегодня {weekday}, {day} {month} {year} года", reply_markup=markup)
 
 @bot.message_handler(regexp='выключить')
@@ -113,10 +112,5 @@ def handle_message(message):
         audio = open('audio.wav', 'rb')
         bot.send_audio(message.chat.id, audio)
         audio.close()
-
-@bot.message_handler(regexp='выключить звук')
-def echo_message(message):
-    bot.send_message(message.chat.id, 'Выключаю...')
-    winsound.PlaySound('sound.wav', winsound.SND_FILENAME)
 
 bot.infinity_polling()
