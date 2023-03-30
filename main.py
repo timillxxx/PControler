@@ -30,7 +30,6 @@ def send_welcome(message):
     markup.add("🔋 Выключить")
     markup.add("⏳ Перезагрузить")
     markup.add("💤 Спящий режим")
-    markup.add("📩 Отправить сообщение")
     markup.add("🎤 Записать 15 с записи микрофона")
     bot.send_message(message.chat.id, f" Привет хозяин \nСегодня {weekday}, {day} {month} {year} года", reply_markup=markup)
 
@@ -55,12 +54,6 @@ def echo_message(message):
 def echo_message(message):
     bot.send_message(message.chat.id, '✅ Перевожу в спящий режим...')
     os.system("shutdown /h")
-
-@bot.message_handler(regexp='отправить сообщение')
-def echo_message(message):
-    bot.send_message(message.chat.id, '✅ Открываю...')
-    path = r'"C:\Users\timillxxx\Desktop\5789347896523\123123.vbs"'
-    os.startfile(path)
 
 def record_audio(duration):
     CHUNK = 1024
