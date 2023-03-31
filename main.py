@@ -12,10 +12,9 @@ from io import BytesIO
 from PIL import Image
 import winsound
 
-with open("token.txt", "r") as file:
-    bot_token = file.read().strip()
+TOKEN = '5972046448:AAGcJwXVBaLLvipiokxr_tU9SPZ5k-Dd0OI'
 
-bot = telebot.TeleBot(bot_token)
+bot = telebot.TeleBot(TOKEN)
 
 now = datetime.datetime.now()
 weekday = now.strftime('%A')
